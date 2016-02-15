@@ -35,12 +35,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationDidBecomeActive(application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    print(NSUserDefaults.standardUserDefaults().stringForKey("PhotoURLString"))
+    var urlString = NSUserDefaults.standardUserDefaults().stringForKey("PhotoURLString")
+    
+    //guard let
+
+    if let photoFeedURL = NSURL(string: urlString!) {
+      self.updateFeed(photoFeedURL, completion: { (feed) -> Void in
+        let viewController = application.windows[0].rootViewController as? FeedTableViewController
+        
+        viewController?.feed = feed
+      })
+    }
+    
   }
 
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
+  
+  func updateFeed(url:NSURL, completion: (feed:Feed?) ->Void){
+    let dataFile = NSBundle.mainBundle().URLForResource("photos_public.gne", withExtension: ".js")!
+    let data = NSData(contentsOfURL: dataFile)!
+    let feedData = Feed(data: data, sourceUrl: url)
+    completion(feed: feedData)
+    
+  }
+  
 
 
 }

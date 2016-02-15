@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		A775C1D61C6D391400558B4E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A775C1D51C6D391400558B4E /* Settings.bundle */; };
+		A775C1D81C72570000558B4E /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C1D71C72570000558B4E /* FeedItem.swift */; };
+		A775C1DA1C72573E00558B4E /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C1D91C72573E00558B4E /* Feed.swift */; };
+		A775C1DC1C72585000558B4E /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C1DB1C72585000558B4E /* FeedTableViewController.swift */; };
+		A775C1DE1C72586400558B4E /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775C1DD1C72586400558B4E /* FeedTableViewCell.swift */; };
+		A775C1E01C725DEB00558B4E /* photos_public.gne.js in Resources */ = {isa = PBXBuildFile; fileRef = A775C1DF1C725DEB00558B4E /* photos_public.gne.js */; };
 		A79F90FA1C6A95EE0032C843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79F90F91C6A95EE0032C843 /* AppDelegate.swift */; };
 		A79F90FC1C6A95EE0032C843 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79F90FB1C6A95EE0032C843 /* ViewController.swift */; };
 		A79F90FF1C6A95EE0032C843 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A79F90FD1C6A95EE0032C843 /* Main.storyboard */; };
@@ -17,6 +22,11 @@
 
 /* Begin PBXFileReference section */
 		A775C1D51C6D391400558B4E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		A775C1D71C72570000558B4E /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		A775C1D91C72573E00558B4E /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		A775C1DB1C72585000558B4E /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		A775C1DD1C72586400558B4E /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		A775C1DF1C725DEB00558B4E /* photos_public.gne.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = photos_public.gne.js; sourceTree = "<group>"; };
 		A79F90F61C6A95EE0032C843 /* PersistenceNetworkingUoT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersistenceNetworkingUoT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79F90F91C6A95EE0032C843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A79F90FB1C6A95EE0032C843 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +73,11 @@
 				A79F91021C6A95EE0032C843 /* LaunchScreen.storyboard */,
 				A79F91051C6A95EE0032C843 /* Info.plist */,
 				A775C1D51C6D391400558B4E /* Settings.bundle */,
+				A775C1D71C72570000558B4E /* FeedItem.swift */,
+				A775C1D91C72573E00558B4E /* Feed.swift */,
+				A775C1DB1C72585000558B4E /* FeedTableViewController.swift */,
+				A775C1DD1C72586400558B4E /* FeedTableViewCell.swift */,
+				A775C1DF1C725DEB00558B4E /* photos_public.gne.js */,
 			);
 			path = PersistenceNetworkingUoT;
 			sourceTree = "<group>";
@@ -130,6 +145,7 @@
 				A79F91041C6A95EE0032C843 /* LaunchScreen.storyboard in Resources */,
 				A79F91011C6A95EE0032C843 /* Assets.xcassets in Resources */,
 				A79F90FF1C6A95EE0032C843 /* Main.storyboard in Resources */,
+				A775C1E01C725DEB00558B4E /* photos_public.gne.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +157,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A79F90FC1C6A95EE0032C843 /* ViewController.swift in Sources */,
+				A775C1DE1C72586400558B4E /* FeedTableViewCell.swift in Sources */,
+				A775C1DA1C72573E00558B4E /* Feed.swift in Sources */,
+				A775C1DC1C72585000558B4E /* FeedTableViewController.swift in Sources */,
 				A79F90FA1C6A95EE0032C843 /* AppDelegate.swift in Sources */,
+				A775C1D81C72570000558B4E /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
