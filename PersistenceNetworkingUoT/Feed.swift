@@ -10,7 +10,7 @@ import UIKit
 
 
 func fixJSONDate (data: NSData) ->NSData {
-  var data = NSData()
+  let data = NSData()
   return data
 }
 
@@ -28,7 +28,7 @@ class Feed: NSObject {
   
     var newItems = [FeedItem]()
     
-    let fixedData = fixJSONDate(data)
+    //let fixedData = fixJSONDate(data)
     
     var jsonObject: Dictionary<String, NSObject>?
     

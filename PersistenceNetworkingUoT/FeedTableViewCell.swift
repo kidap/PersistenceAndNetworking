@@ -12,6 +12,8 @@ class FeedTableViewCell: UITableViewCell {
 
   @IBOutlet var feedImage: UIImageView!
   @IBOutlet var feedText: UILabel!
+  
+  weak var dataTask: NSURLSessionDataTask?
 
     override func awakeFromNib() {
         super.awakeFromNib()

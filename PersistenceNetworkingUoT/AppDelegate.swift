@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationDidBecomeActive(application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    var urlString = NSUserDefaults.standardUserDefaults().stringForKey("PhotoURLString")
+    let urlString = NSUserDefaults.standardUserDefaults().stringForKey("PhotoURLString")
     
     //guard let
 
@@ -54,9 +54,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func updateFeed(url:NSURL, completion: (feed:Feed?) ->Void){
-    let dataFile = NSBundle.mainBundle().URLForResource("photos_public.gne", withExtension: ".js")!
-    let data = NSData(contentsOfURL: dataFile)!
-    let feedData = Feed(data: data, sourceUrl: url)
+    //let dataFile = NSBundle.mainBundle().URLForResource("photos_public.gne", withExtension: ".js")!
+    //let data = NSData(contentsOfURL: dataFile)!
+    let data2 = NSData(contentsOfURL: url)!
+    let feedData = Feed(data: data2, sourceUrl: url)
     completion(feed: feedData)
     
   }

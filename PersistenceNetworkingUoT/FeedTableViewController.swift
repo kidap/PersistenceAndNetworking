@@ -66,22 +66,30 @@ class FeedTableViewController: UITableViewController {
 
         // Configure the cell...
       
+      cell.feedText.text  = self.feed!.items[indexPath.row].title
+      
         var request = NSURLRequest(URL: feed!.items[indexPath.row].imageURL)
       
-        var dataTask = urlSession.dataTaskWithRequest(request) { (data, response, error) -> Void in
-          if error == nil && data != nil{
-            if let image = UIImage(data: data!){
-              cell.imageView!.image = image
-            }
+        cell.dataTask = urlSession.dataTaskWithRequest(request) { (data, response, error) -> Void in
+          NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+            if error == nil && data != nil{
+                if let image = UIImage(data: data!){
+                  cell.feedImage.image = image
+                }
           
-          }
+            }
+          })
       }
       
-        cell.feedText.text  = feed!.items[indexPath.row].title
+      cell.dataTask?.resume()
       
-
-        return cell
+      return cell
     }
+  override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    if let cell = cell as? FeedTableViewCell{
+        cell.dataTask?.cancel()
+    }
+  }
 
 
     /*
