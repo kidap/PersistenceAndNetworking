@@ -9,31 +9,51 @@
 import UIKit
 
 
-func fixJSONDate (data: NSData) ->NSData {
-  let data = NSData()
-  return data
+func fixJsonData (data: NSData) -> NSData {
+  var dataString = String(data: data, encoding: NSUTF8StringEncoding)!
+  dataString = dataString.stringByReplacingOccurrencesOfString("\\'", withString: "'")
+  return dataString.dataUsingEncoding(NSUTF8StringEncoding)!
+  
 }
 
-class Feed: NSObject {
+class Feed: NSObject,NSCoding {
   var items = [FeedItem]()
   var sourceUrl = NSURL()
   
   init( feed:[FeedItem], sourceUrl:NSURL){
+    
+    super.init()
+    
     self.items = feed
     self.sourceUrl = sourceUrl
 
+  }
+  
+  func encodeWithCoder(aCoder: NSCoder) {
+    aCoder.encodeObject(self.items, forKey: "feedItems")
+    aCoder.encodeObject(self.sourceUrl, forKey: "feedSourceURL")
+  }
+
+  required convenience init?(coder aDecoder:NSCoder){
+    let storedItems = aDecoder.decodeObjectForKey("feedItems") as? [FeedItem]
+    let storedURL = aDecoder.decodeObjectForKey("feedSourceURL") as? NSURL
+    
+    guard storedItems != nil && storedURL != nil else {
+      return nil
+    }
+    self.init(feed: storedItems!, sourceUrl:storedURL!)
   }
   
   convenience init?(data: NSData, sourceUrl: NSURL){
   
     var newItems = [FeedItem]()
     
-    //let fixedData = fixJSONDate(data)
+    let fixedData = fixJsonData(data)
     
     var jsonObject: Dictionary<String, NSObject>?
     
     do {
-      try jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? Dictionary<String, NSObject>
+      try jsonObject = try NSJSONSerialization.JSONObjectWithData(fixedData, options: NSJSONReadingOptions(rawValue: 0)) as? Dictionary<String, NSObject>
     } catch{
     
     }
